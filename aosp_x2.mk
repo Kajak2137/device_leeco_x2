@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Must define platform variant before including any common things
+TARGET_BOARD_PLATFORM_VARIANT := msm8996
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -19,10 +22,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device
 $(call inherit-product, device/leeco/x2/device.mk)
 
+<<<<<<< HEAD:lineage.mk
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+=======
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+>>>>>>> d434586... AOSP'fy:aosp_x2.mk
 
-PRODUCT_NAME := lineage_x2
+PRODUCT_NAME := aosp_x2
 PRODUCT_DEVICE := x2
 PRODUCT_MANUFACTURER := LeMobile
 PRODUCT_BRAND := LeEco
