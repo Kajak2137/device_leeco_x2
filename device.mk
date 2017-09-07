@@ -363,3 +363,6 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
 ifeq ($(AUDIO_VIPDAX),true)
 $(call inherit-product-if-exists, vendor/leeco/vipdax/vipdax-vendor.mk)
 endif
+
+# MSM8996 Headers
+PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8996/kernel-headers
