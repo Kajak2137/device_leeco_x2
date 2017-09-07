@@ -1142,7 +1142,7 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 service charger /sbin/healthd -c
     class charger
     group log system graphics
-    seclabel u:r:healthd:s0
+#    seclabel u:r:healthd:s0
     writepid /dev/cpuset/system-background/tasks
 
 service ssr_diag /system/bin/ssr_diag
