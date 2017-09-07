@@ -342,6 +342,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_COPY_FILES += \
 #    $(call find-copy-subdir-files,*,device/leeco/x2/lepref/files,/system/etc)
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # WiFi HAL
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
