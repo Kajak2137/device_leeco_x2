@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product, vendor/leeco/x2/x2-vendor.mk)
+
 #$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 #$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
@@ -41,10 +43,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_height=1024
 
 
-$(call inherit-product, vendor/leeco/x2/x2-vendor.mk)
-
-# ViperFX + Dolby Atmos
-AUDIO_VIPDAX := true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -100,17 +98,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Audio
-ifeq ($(AUDIO_VIPDAX),true)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/vipdax/audio_policy.conf:system/etc/audio_policy.conf
-ADDITIONAL_DEFAULT_PROPERTIES += ro.musicfx.disabled=true
-else
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
-endif
-
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/mixer_paths_tasha.xml:system/etc/mixer_paths_tasha.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
@@ -314,12 +303,12 @@ PRODUCT_PACKAGES += \
     libhealthd.msm8996
 
 # LePref settigs modules
-PRODUCT_PACKAGES += \
-    LePref
+#PRODUCT_PACKAGES += \
+#    LePref
 
 # LePref Files
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/leeco/x2/lepref/files,/system/etc)
+#PRODUCT_COPY_FILES += \
+#    $(call find-copy-subdir-files,*,device/leeco/x2/lepref/files,/system/etc)
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -358,11 +347,6 @@ endif
 # Model is set via init library
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
     ro.product.model
-
-# ViperFX + Dolby Atmos Vendor
-ifeq ($(AUDIO_VIPDAX),true)
-$(call inherit-product-if-exists, vendor/leeco/vipdax/vipdax-vendor.mk)
-endif
 
 # MSM8996 Headers
 PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8996/kernel-headers
