@@ -310,6 +310,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_COPY_FILES += \
 #    $(call find-copy-subdir-files,*,device/leeco/x2/lepref/files,/system/etc)
 
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
