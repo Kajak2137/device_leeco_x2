@@ -271,9 +271,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/root/fstab.qcom
 endif
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+#include device/qcom/sepolicy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-BOARD_SECCOMP_POLICY += $(BOARD_PATH)/seccomp
+#BOARD_SECCOMP_POLICY += $(BOARD_PATH)/seccomp
 
 -include vendor/leeco/x2/BoardConfigVendor.mk
