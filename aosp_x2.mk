@@ -22,14 +22,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from device
 $(call inherit-product, device/leeco/x2/device.mk)
 
-<<<<<<< HEAD:lineage.mk
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-=======
-
-
->>>>>>> d434586... AOSP'fy:aosp_x2.mk
-
 PRODUCT_NAME := aosp_x2
 PRODUCT_DEVICE := x2
 PRODUCT_MANUFACTURER := LeMobile
